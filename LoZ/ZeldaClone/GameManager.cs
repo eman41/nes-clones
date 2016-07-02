@@ -255,16 +255,13 @@ namespace ZeldaClone
             _uiCamera.Update(gameTime);
             _worldCamera.Update(gameTime);
 
-            if (keyboardState.IsKeyDown(Keys.LeftControl) &&
+            if (keyboardState.IsKeyDown(Keys.A) &&
                 _lastKeyboardState.IsKeyUp(Keys.LeftControl))
             {
                 _pngFont.Reset();
             }
 
-//            if (!_isPaused && !_uiCamera.IsMoving)
-//            {
-//                _pngFont.Update(gameTime);
-//            }
+            _pngFont.Update(gameTime);
 
             _lastGamePadState = gamePadState;
             _lastKeyboardState = keyboardState;
@@ -288,7 +285,7 @@ namespace ZeldaClone
             _worldBatch.FillRectangle(new Rectangle(448, 128, 64, 336), Color.Brown);
             _worldBatch.FillRectangle(new Rectangle(0, 416, 192, 64), Color.Brown);
             _worldBatch.FillRectangle(new Rectangle(320, 416, 192, 64), Color.Brown);
-
+            _pngFont.DrawString(_worldBatch, Color.White);
             _uiSpriteBatch.FillRectangle(new Rectangle(0, 0, 512, 480), Color.Black);
 
             _hud.Draw(_uiSpriteBatch);
